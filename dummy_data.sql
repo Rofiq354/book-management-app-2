@@ -1,0 +1,122 @@
+INSERT INTO books (title, sinopsis, author, publication_year, status)
+VALUES
+('The Silent Forest',
+ 'Kisah misteri tentang hutan sunyi yang menyimpan rahasia kelam.',
+ 'Ariana Wells',
+ 2018,
+ 'available'),
+
+('Road to Andromeda',
+ 'Perjalanan luar angkasa menuju galaksi jauh penuh bahaya.',
+ 'Julian Carter',
+ 2021,
+ 'available'),
+
+('Whispers of Autumn',
+ 'Drama emosional tentang kehilangan dan menemukan harapan.',
+ 'Mara Lewis',
+ 2016,
+ 'borrowed'),
+
+('Shadows Over The Lake',
+ 'Detektif menyelidiki kasus aneh di desa dekat danau.',
+ 'Evan Pierce',
+ 2019,
+ 'available'),
+
+('Crimson Kingdom',
+ 'Petualangan epik tentang kerajaan merah dan pertarungan kekuasaan.',
+ 'Leon Hart',
+ 2015,
+ 'available'),
+
+('The Glass Tower',
+ 'Seorang ilmuwan menemukan rahasia di balik menara kaca raksasa.',
+ 'Nadia Rivers',
+ 2020,
+ 'borrowed'),
+
+('Garden of Echoes',
+ 'Taman misterius yang membuat pengunjung mendengar suara masa lalu.',
+ 'Selena Frost',
+ 2017,
+ 'available'),
+
+('Binary Dreams',
+ 'Kisah dunia digital yang mulai bercampur dengan kenyataan.',
+ 'Dylan Moore',
+ 2022,
+ 'available'),
+
+('The Last Caravan',
+ 'Kelompok pengelana bertahan hidup menembus gurun yang kejam.',
+ 'Hector Miles',
+ 2014,
+ 'borrowed'),
+
+('Moonlight Sonata',
+ 'Romansa lembut tentang dua orang yang terhubung lewat musik.',
+ 'Elara Quinn',
+ 2019,
+ 'available'),
+
+ ('Echoes in the Rain',
+ 'Seorang gadis menemukan pesan misterius setiap kali hujan turun.',
+ 'Luna Hayes',
+ 2018,
+ 'available'),
+
+('The Forgotten Map',
+ 'Peta tua membawa dua sahabat ke petualangan tak terduga.',
+ 'Rico Hunter',
+ 2017,
+ 'available'),
+
+('Winter’s Promise',
+ 'Cerita tentang perjuangan keluarga kecil di tengah musim dingin.',
+ 'Helena Moore',
+ 2015,
+ 'borrowed'),
+
+('The Iron Voyager',
+ 'Kapten legendaris menjelajahi laut dengan kapal besi pertama.',
+ 'Marcus Steel',
+ 2020,
+ 'available'),
+
+('Realm of Dust',
+ 'Dunia tandus yang menyimpan artefak kuno penuh kekuatan.',
+ 'Felix Ward',
+ 2021,
+ 'available'),
+
+('Painted Horizons',
+ 'Pelukis menemukan inspirasi dari tempat terpencil di utara.',
+ 'Nora Blake',
+ 2016,
+ 'available'),
+
+('The Sapphire Code',
+ 'Pakar kriptografi memecahkan kode kuno yang berbahaya.',
+ 'Adrian Wells',
+ 2019,
+ 'borrowed'),
+
+('Threads of Time',
+ 'Jam antik yang bisa membawa pemiliknya ke masa lalu.',
+ 'Clara Voss',
+ 2014,
+ 'available'),
+
+('Voyage of Ember',
+ 'Kapal api menuju pulau misterius yang tak ada di peta.',
+ 'Jared Collins',
+ 2022,
+ 'available'),
+
+('Broken Lanterns',
+ 'Detektif mencari makna simbol lentera yang ditemukan di TKP.',
+ 'Sienna Hart',
+ 2021,
+ 'borrowed');
+

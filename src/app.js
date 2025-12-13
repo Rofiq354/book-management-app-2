@@ -28,10 +28,8 @@ app.use("/public", express.static("src/public")); // folder public, di url ada u
 // ============================
 // ROUTES
 // ============================
-// app.get("/", (req, res) => {
-//   res.render("pages/welcome", { title: "Home Page" });
-// });
 
+// Welcome Routes
 app.get("/", async (req, res) => {
   const result = await db.query("SELECT * from public.books");
   const books = result.rows;

@@ -1,0 +1,138 @@
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: Arial, sans-serif;
+}
+
+
+.layout {
+  display: flex;
+  min-height: 100vh;
+}
+
+.sidebar {
+    width: 260px;
+    height: 100vh;
+    background: #ffffff;
+    border-right: 1px solid #e5e7eb;
+    padding: 16px 0;
+    transition: width 0.3s ease;
+    overflow: hidden;
+    flex-shrink: 0;
+}
+
+.layout.sidebar-collapsed .sidebar {
+  width: 80px;
+}
+
+.layout.sidebar-collapsed .logo {
+  display: none;
+}
+
+.layout.sidebar-collapsed .menu-link span {
+  display: none;
+}
+
+.layout.sidebar-collapsed .menu-link {
+  justify-content: center;
+  padding: 12px 0;
+}
+
+.layout.sidebar-collapsed .menu-link::before {
+  left: 0;
+  width: 6px;
+}
+
+.layout.sidebar-collapsed .sidebar-header {
+  justify-content: center;
+}
+
+.sidebar-header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between; /* KUNCI */
+  padding: 0 16px 16px;
+}
+
+.logo {
+  margin: 0;
+  font-weight: 700;
+  font-size: 18px;
+  white-space: nowrap;
+}
+
+.sidebar.collapsed .logo {
+  display: none;
+}
+
+
+.menu-link {
+  position: relative;
+  display: flex;
+  align-items: center;
+  gap: 14px;
+  padding: 12px 24px;
+  color: #6b7280;
+  text-decoration: none;
+  transition: all 0.2s ease;
+}
+
+.menu-link i {
+  font-size: 18px;
+  min-width: 20px;
+}
+
+.menu-link:hover {
+  background: #f3f4f6;
+  color: #111827;
+}
+
+.menu-link.active {
+  background: #ecfdf5;
+  color: #065f46;
+  font-weight: 600;
+}
+
+ .menu-link::before {
+  content: "";
+  position: absolute;
+  left: 0;
+  top: 50%;
+  transform: translateY(-50%);
+  width: 10px;
+  height: 70%;
+  background: #065f46;
+  clip-path: polygon(0 0, 100% 10%, 100% 90%, 0 100%);
+  opacity: 0;
+}
+
+.menu-link.active::before {
+  opacity: 1;
+}
+
+.icon {
+    width: 22px;
+    height: 22px;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    color: inherit;
+}
+
+.toggle-btn {
+  top: 16px;
+  left: 16px;
+  background: #ffffff;
+  color: black;
+  border: none;
+  width: 40px;
+  height: 40px;
+  border-radius: 10px;
+  cursor: pointer;
+  z-index: 1000;
+
+}
+
+

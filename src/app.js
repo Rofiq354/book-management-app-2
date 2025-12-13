@@ -23,7 +23,7 @@ app.set("views", path.join(__dirname, "views")); // path buat render halamannya
 // ============================
 app.use(express.urlencoded({ extended: true })); // form handler
 app.use(express.json()); // JSON handler
-app.use("/public", express.static("public")); // folder public, di url ada url /public
+app.use("/public", express.static("src/public")); // folder public, di url ada url /public
 
 // ============================
 // ROUTES

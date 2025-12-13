@@ -1,6 +1,7 @@
 import express from "express";
 import db from "./config/db.js"; // dapatkan database koneksi
 import { engine } from "express-handlebars"; // untuk layouting seperti navbar, footer dll.
+import methodOverride from "method-override";
 import path from "path";
 import { fileURLToPath } from "url";
 
@@ -23,6 +24,7 @@ app.set("views", path.join(__dirname, "views")); // path buat render halamannya
 // ============================
 app.use(express.urlencoded({ extended: true })); // form handler
 app.use(express.json()); // JSON handler
+app.use(methodOverride("_method"));
 app.use("/public", express.static("src/public")); // folder public, di url ada url /public
 
 // ============================
@@ -35,5 +37,64 @@ app.get("/", async (req, res) => {
   const books = result.rows;
   res.render("pages/welcome", { books });
 });
+
+// Books Router
+app.get("/books", getAllBooks);
+app.get("/books/:id/edit", editBook);
+app.put("/books/:id", updateBook);
+app.delete("/books/:id", deleteBook);
+
+async function getAllBooks(req, res) {
+  const result = await db.query("SELECT * FROM public.books order by id");
+  const books = result.rows;
+
+  console.log(books);
+  res.render("pages/books", { books, title: "books" });
+}
+
+async function editBook(req, res) {
+  const result = await db.query("SELECT * FROM public.books");
+  const books = result.rows;
+  const book = books.find((book) => book.id === Number(req.params.id));
+
+  res.render("pages/books", { book, books, title: "books" });
+}
+
+async function updateBook(req, res) {
+  const { id } = req.params;
+  const { title, sinopsis, author, publication_year, status } = req.body;
+  const result = await db.query(
+    `UPDATE public.books SET title = $1,
+      sinopsis = $2,
+      author = $3,
+      publication_year = $4,
+      status = $5,
+      updated_at = NOW()
+    WHERE id = $6 RETURNING *`,
+    [title, sinopsis, author, publication_year, status, id]
+  );
+
+  if (result.rowCount === 0 || !result) {
+    return res.status(404).json({ message: "User not found" });
+  }
+
+  res.redirect("/books");
+}
+
+async function deleteBook(req, res) {
+  const { id } = req.params;
+  const result = await db.query(
+    `DELETE FROM public.books
+    WHERE id = $1
+    RETURNING *`,
+    [id]
+  );
+
+  if (result.rowCount === 0 || !result) {
+    return res.status(404).json({ message: "User not found" });
+  }
+
+  res.redirect("/books");
+}
 
 export default app;

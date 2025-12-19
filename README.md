@@ -21,23 +21,33 @@ starter for learners.
 ## 📂 Project Structure
 
     book-management-app/
+    ├─ config/
+    │  └─ db.js                   # PostgreSQL database connection
+    │
+    ├─ controllers/               # Request handlers / business logic
+    │
+    ├─ routes/                    # Express route definitions
+    │
+    ├─ sql/                       # Raw SQL files / query reference (optional)
     │
     ├─ src/
-    │  ├─ app.js               # Express initialization
-    │  ├─ config/
-    │  │   └─ db.js            # PostgreSQL connection setup
-    │  ├─ routes/              # App routes (empty for now)
-    │  ├─ controllers/         # Logic controllers (empty for now)
-    │  └─ views/               # Handlebars templates
-    │      ├─ layouts/
-    │      │    └─ main.hbs
-    │      └─ pages/
-    │           └─ welcome.hbs
+    │  ├─ public/                 # Static assets
+    │  │  ├─ css/                 # Stylesheets
+    │  │  └─ js/                  # Client-side JavaScript
+    │  │
+    │  └─ views/                  # Handlebars templates
+    │     ├─ layouts/             # Main layouts
+    │     │  └─ main.hbs
+    │     ├─ pages/               # Page-level views
+    │     └─ partials/            # Reusable components (navbar, footer, etc)
     │
-    ├─ server.js               # App entry point
-    ├─ package.json
-    ├─ .env.example            # Environment variable template
-    └─ README.md
+    ├─ .env                       # Environment variables
+    ├─ .gitignore                 # Git ignore rules
+    ├─ app.js                     # Express app configuration
+    ├─ server.js                  # Application entry point
+    ├─ package.json               # Project metadata & dependencies
+    ├─ package-lock.json
+    └─ README.md                  # Project documentation
 
 ---
 
@@ -78,30 +88,28 @@ Fill in your own values:
 
 ## 🗄️ Database Setup
 
-Create the database:
+Seluruh kebutuhan query SQL pada project ini disimpan di dalam folder `sql/`.
+Folder tersebut berisi query untuk pembuatan database, pembuatan tabel, relasi antar tabel, serta data dummy (seed).
+
+### 📄 Contoh Create Table
+
+Berikut contoh salah satu tabel yang terdapat di folder `sql/`:
 
 ```sql
-CREATE DATABASE book_management;
-```
-
-Create the table:
-
-```sql
-CREATE TABLE books (
+CREATE TABLE categories (
   id SERIAL PRIMARY KEY,
-  title VARCHAR(255) NOT NULL,
-  sinopsis VARCHAR(100),
-  author VARCHAR(255),
-  publication_year INT,
-  status VARCHAR(50)
+  name VARCHAR(100) NOT NULL UNIQUE,
+  description TEXT
 );
 ```
 
-(Optional) Insert sample data:
+### 📄 Contoh Insert Data Category
+
+Berikut contoh salah satu insert data yang terdapat di folder `sql/`:
 
 ```sql
-INSERT INTO books (title, sinopsis, author, publication_year, status)
-VALUES ('Sample Book', 'This is a sample book.', 'John Doe', 2024, 'available');
+INSERT INTO categories (name, description)
+VALUES ('Teknologi', 'Buku seputar teknologi dan pemrograman');
 ```
 
 ---
